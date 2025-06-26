@@ -1,9 +1,22 @@
 import requests
 
+# "api.telegram.org/bot7937463970:AAGrbswdXbiYXge1CMttUWQaAi347o4mnrQ/sendmessage?chat_id=5277103165&text=salam"
+
 msg = input("your message: ")
 
-http = requests.get(f"https://api.telegram.org/bot7937463970:AAGrbswdXbiYXge1CMttUWQaAi347o4mnrQ/sendmessage?chat_id=5277103165&text={msg}")
+url = f"https://api.telegram.org/bot7937463970:AAGrbswdXbiYXge1CMttUWQaAi347o4mnrQ/sendmessage?chat_id=5277103165&text={msg}"
 
-print(http.content.decode())
+# http = requests.get(url)
+#
+# print(http.content.decode())
 
-# "api.telegram.org/bot7937463970:AAGrbswdXbiYXge1CMttUWQaAi347o4mnrQ/sendmessage?chat_id=5277103165&text=salam"
+mydata = {
+    "UrlBox": url,
+    "AgentList": "Internet Explorer",
+    "VersionList": "HTTP/1.1",
+    "MethodList": "GET"
+}
+
+http = requests.post("https://www.httpdebugger.com/tools/ViewHttpHeaders.aspx", data=mydata)
+
+
